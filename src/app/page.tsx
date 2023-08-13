@@ -1,9 +1,10 @@
+import { Image as IImage } from "sanity";
 import Mycard from "../../components/Mycard";
 import Hero from "../../components/section/Hero";
 import EventsBanner from "../../components/section/Promotion";
 import { client } from "../../sanity/lib/client";
 
-export const getDataSanity = async () => {
+export const getSanityData = async () => {
   const res = await client.fetch(`*[_type=="product"]{
     _id,
     title,
@@ -17,8 +18,22 @@ export const getDataSanity = async () => {
   return res;
 };
 
+
+interface IProduct {
+  _id: string,
+  title: string,
+  description: string,
+  price: number,
+  image: IImage,
+  category: {
+    name: string
+  }
+}
+
+
 export default async function Home() {
-  const data = await getDataSanity();
+  
+  const data: IProduct[] = await getSanityData();
 
   return (
     <>
