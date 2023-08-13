@@ -3,7 +3,7 @@ import Hero from "../../components/section/Hero";
 import EventsBanner from "../../components/section/Promotion";
 import { client } from "../../sanity/lib/client";
 
-export const fetchDataSanity = async () => {
+export const getDataSanity = async () => {
   const res = await client.fetch(`*[_type=="product"]{
     _id,
     title,
@@ -18,7 +18,7 @@ export const fetchDataSanity = async () => {
 };
 
 export default async function Home() {
-  const data = await fetchDataSanity();
+  const data = await getDataSanity();
 
   return (
     <>
