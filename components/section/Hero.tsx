@@ -4,12 +4,12 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="container mx-auto m-12 flex flex-1">
-      <div className="m-10 flex flex-col justify-center items-center space-y-8 md:items-start w-full">
+    <div className="container mx-auto flex">
+      <div className="my-10 flex flex-col justify-center items-center space-y-8 lg:items-start w-full">
         <div className="bg-blue-200 p-3 rounded">
           <h2 className="text-blue-600">Sale 70%</h2>
         </div>
-        <h1 className="scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-5xl">
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           An Industrial Take on Streetwear
         </h1>
         <p className="max-w-md leading-6 text-md [&:not(:first-child)]:mt-6">

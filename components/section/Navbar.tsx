@@ -13,12 +13,12 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center h-20 px-20">
+    <nav className="container flex justify-between items-center h-20 px-20">
       <Image src={"/Logo.webp"} alt="website logo" width={150} height={150} />
-      <div>
+      {/* <div>
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem className="space-x-5">
+            <NavigationMenuItem >
               <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
               <NavigationMenuTrigger>Item two</NavigationMenuTrigger>
               <NavigationMenuTrigger>Item three</NavigationMenuTrigger>
@@ -42,7 +42,7 @@ const Navbar = () => {
         <span className="absolute top-2 right-20 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
           0
         </span>
-      </div>
+      </div> */}
     </nav>
   );
 };

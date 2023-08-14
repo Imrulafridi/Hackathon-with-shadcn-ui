@@ -6,7 +6,7 @@ import event3 from "../../assets/event3.png";
 
 const EventsBanner = () => {
   return (
-    <section className="container px-32 py-16">
+    <section className="container py-16">
       <div className="flex flex-col text-center gap-4 mb-8">
         <span className="text-blue-700">PROMOTIONS</span>
         <h2 className="text-2xl font-bolds">Our Promotions Events</h2>

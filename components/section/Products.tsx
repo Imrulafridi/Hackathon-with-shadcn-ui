@@ -2,7 +2,7 @@
 import React from 'react'
 import { client } from "../../sanity/lib/client";
 import { Image as IImage } from "sanity";
-import Mycard from '../../components/Mycard';
+import Mycard from '../Mycard';
 
 
 
