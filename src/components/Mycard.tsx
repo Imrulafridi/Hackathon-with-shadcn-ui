@@ -1,4 +1,6 @@
+"use client"
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -8,10 +10,16 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Button } from "./ui/button";
-import { urlForImage } from "../sanity/lib/image";
+import { urlForImage } from "../../sanity/lib/image";
+import { IProduct } from "@/lib/interface";
 
-const Mycard = ({ item }: any) => {
-  const { title, description, image, price } = item;
+type Props = {
+  item: IProduct
+}
+
+
+const Mycard = ({item}: Props) => {
+  const { title, description, image, price, slug } = item;
   return (
     <>
       <div className="mx-auto items-center">
@@ -32,7 +40,9 @@ const Mycard = ({ item }: any) => {
             <h1> <strong> $ {price} </strong></h1>
           </CardFooter>
           <div className=" my-4 flex justify-center items-center mx-auto">
-            <Button variant="default">Add to Cart</Button>
+            <Link href={`/products/${slug.current}`} >
+            <Button  variant="default" >Click For Details</Button>
+            </Link>
           </div>
         </Card>
       </div>

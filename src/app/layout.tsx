@@ -1,7 +1,10 @@
-import Footer from "../../components/section/Footer";
-import Navbar from "../../components/section/Navbar";
+import Providers from "../lib/Providers";
+import Cproviders from "@/lib/Chakraprovider";
+import Footer from "../components/section/Footer";
+import Navbar from "../components/section/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { ClerkProvider, auth } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +18,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { userId } = auth();
+
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    <ClerkProvider>
+      <Providers>
+        <html lang="en">
+          <Cproviders>
+            <body>
+              <Navbar userId={userId as string} />
+              {children}
+              <Footer />
+            </body>
+          </Cproviders>
+        </html>
+      </Providers>
+    </ClerkProvider>
   );
 }

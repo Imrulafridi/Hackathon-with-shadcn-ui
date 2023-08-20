@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import event1 from "../../assets/event1.png";
-import event2 from "../../assets/event2.png";
-import event3 from "../../assets/event3.png";
+import event1 from "../../../assets/event1.png";
+import event2 from "../../../assets/event2.png";
+import event3 from "../../../assets/event3.png";
 
 const EventsBanner = () => {
   return (
