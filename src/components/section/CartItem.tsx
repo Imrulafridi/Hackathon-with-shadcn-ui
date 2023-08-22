@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hook";
 import { rmFromCart } from "../../redux/cartSlice";
 
-export const CartItem = (props: cartProduct) => {
+export const CartItem = (props: any) => {
   const { image, price, title } = props;
   const dispatch = useAppDispatch();
 
@@ -50,7 +50,7 @@ export const CartItem = (props: cartProduct) => {
         <Box pt="4">
           <Stack spacing="0.5">
             <Text fontWeight="medium" content="center">
-              {title}
+              {props.name}
             </Text>
           </Stack>
         </Box>
