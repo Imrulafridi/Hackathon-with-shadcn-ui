@@ -10,13 +10,19 @@ import {
 import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hook";
 import { rmFromCart } from "../../redux/cartSlice";
+import { cartProduct } from "@/lib/interface";
 
-export const CartItem = (props: any) => {
-  const { image, price, title } = props;
+type PROPS = {
+  item: cartProduct
+}
+
+
+export const CartItem = ({item}: PROPS) => {
+  const { image, price, title, _id } = item
   const dispatch = useAppDispatch();
 
   const onClickDelete = async () => {
-    await fetch(`/api/cart/product/${props._id}`, {
+    await fetch(`/api/cart/product/${_id}`, {
       method: "DELETE",
     });
   };
@@ -27,7 +33,7 @@ export const CartItem = (props: any) => {
       success: "Product Removed",
       error: "Failed to Remove Product",
     });
-    dispatch(rmFromCart({ id: props._id }));
+    dispatch(rmFromCart({ id: _id }));
   };
 
   return (
@@ -49,7 +55,7 @@ export const CartItem = (props: any) => {
         <Box pt="4">
           <Stack spacing="0.5">
             <Text fontWeight="medium" content="center">
-              {props.name}
+              {title}
             </Text>
           </Stack>
         </Box>
@@ -77,7 +83,7 @@ export const CartItem = (props: any) => {
         display={{ base: "flex", md: "none" }}
       >
          <CloseButton
-          aria-label={`Delete ${props.name} from cart`}
+          aria-label={`Delete ${title} from cart`}
           onClick={() => deleteFromCart()}
         />
        PRICE: $ {price}.00

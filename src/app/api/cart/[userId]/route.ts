@@ -23,7 +23,7 @@ export const GET = async (
 
     const cartItems = res.map((item) => ({
       _id: item.product_id,
-      name: item.product_name,
+      title: item.product_name,
       price: item.price,
       totalPrice: item.price * item.quantity,
       image: item.image,

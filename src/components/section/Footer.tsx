@@ -11,10 +11,8 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import logo from "../../../assets/Logo.png"
 
-const Logo = (props: any) => {
-  return <Image src={`/logo.webp`} alt="logo" width={150} height={50} />;
-};
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -38,7 +36,7 @@ export default function LargeWithLogoLeft() {
           <Stack spacing={6}>
             <Box>
               <Link href={"/"}>
-                <Logo color={useColorModeValue("gray.700", "white")} />
+              <Image src={logo} alt="logo" width={150} height={50} />
               </Link>
             </Box>
             <Text fontSize={"sm"}>

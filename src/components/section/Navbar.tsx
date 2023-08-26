@@ -18,6 +18,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { UserButton } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { fetchData } from "@/redux/cartSlice";
+import logo from "../../../assets/Logo.png"
 
 interface Props {
   children: React.ReactNode;
@@ -45,10 +46,6 @@ const NavLink = (props: Props) => {
   );
 };
 
-const Logo = () => {
-  return <Image src={`/logo.webp`} alt="logo" width={150} height={150} />;
-};
-
 export default function Navbar({ userId }: { userId: string }) {
   const quantity: number = useAppSelector((state) => state.cart.totalQuantity);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,10 +58,7 @@ export default function Navbar({ userId }: { userId: string }) {
 
   return (
     <div>
-      <Box
-        className="container"
-        px={4}
-      >
+      <Box className="container" px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -75,7 +69,7 @@ export default function Navbar({ userId }: { userId: string }) {
           />
           <HStack spacing={8} alignItems={"center"}>
             <Link href={"/"}>
-              <Logo />
+              <Image src={logo} alt="logo" width={150} height={150} />
             </Link>
             <HStack
               as={"nav"}

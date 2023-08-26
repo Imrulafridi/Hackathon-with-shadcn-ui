@@ -52,7 +52,7 @@ const CartLoadedData = () => {
 
             <Stack spacing="6">
               {cartItems.map((item) => (
-                <CartItem key={item._id} {...item} />
+                <CartItem key={item._id} item={item} />
               ))}
             </Stack>
           </Stack>
