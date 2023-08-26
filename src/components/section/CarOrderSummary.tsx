@@ -5,16 +5,16 @@ import {
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import { Button } from "../ui/button";
-
-
+import { cartProduct } from "@/lib/interface";
+import StripeCheckOut from "./StripeCheckOut";
 
 type Props = {
+  product: cartProduct[];
   totalPrice: number;
   totalItems: number;
 };
 
-const CartOrderSummary = ({ totalPrice, totalItems }: Props) => {
+const CartOrderSummary = ({ totalPrice, totalItems, product }: Props) => {
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -22,7 +22,7 @@ const CartOrderSummary = ({ totalPrice, totalItems }: Props) => {
       <Stack spacing="6">
         <Flex justify="space-between">
           <Text fontSize="lg" fontWeight="semibold">
-            Total Price: 
+            Total Price:
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
             $ {totalPrice}.00
@@ -33,13 +33,11 @@ const CartOrderSummary = ({ totalPrice, totalItems }: Props) => {
             Total Items:
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-             {totalItems}
+            {totalItems}
           </Text>
         </Flex>
       </Stack>
-      <Button variant="default" size="lg">
-        Checkout
-      </Button>
+      <StripeCheckOut product={product} />
     </Stack>
   );
 };

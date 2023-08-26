@@ -37,7 +37,7 @@ const Mycard = ({item}: Props) => {
             />
           </CardContent>
           <CardFooter>
-            <h1> <strong> $ {price} </strong></h1>
+            <h1 className="font-bold text-lg"> Price: <strong> $ {price} </strong></h1>
           </CardFooter>
           <div className=" my-4 flex justify-center items-center mx-auto">
             <Link href={`/products/${slug.current}`} >

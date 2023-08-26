@@ -13,8 +13,9 @@ import { CartItem } from "./../../components/section/CartItem";
 import CartOrderSummary from "../../components/section/CarOrderSummary";
 import Link from "next/link";
 import { selectIsLoading } from "@/redux/cartSlice";
-import StripeCheckOut from "@/components/section/StripeCheckOut";
-
+import { MdShoppingBag } from "react-icons/md";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
 
 const CartDataLoadingFromApi = () => {
   return (
@@ -30,7 +31,6 @@ const CartLoadedData = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalItems = useAppSelector((state) => state.cart.totalQuantity);
   const totalPrice = useAppSelector((state) => state.cart.totalAmount);
-
 
   if (cartItems.length > 0) {
     return (
@@ -58,8 +58,11 @@ const CartLoadedData = () => {
           </Stack>
 
           <Flex direction="column" align="center" flex="1">
-            <CartOrderSummary totalPrice={totalPrice} totalItems={totalItems} />
-            <StripeCheckOut product={cartItems} />
+            <CartOrderSummary
+              totalPrice={totalPrice}
+              totalItems={totalItems}
+              product={cartItems}
+            />
             <HStack mt="6" fontWeight="semibold">
               <p>or</p>
               <Link href={"/products"} className="text-blue-700">
@@ -71,7 +74,17 @@ const CartLoadedData = () => {
       </Box>
     );
   } else {
-    return <h1>CART IS EMPTY</h1>;
+    return (
+      <div className="container mx-auto flex flex-col justify-center items-center h-[50vh] space-y-8">
+        <MdShoppingBag className="h-56 w-56" />
+        <h1 className="font-bold text-4xl font-serif">YOUR CART IS EMPTY</h1>
+        <Link href={`/products`}>
+          <Button className="m-2 w-56 h-12">
+            <ShoppingCart className="mr-2 h-5 w-5" /> Start Shopping
+          </Button>
+        </Link>
+      </div>
+    );
   }
 };
 

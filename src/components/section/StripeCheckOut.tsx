@@ -26,9 +26,11 @@ const StripeCheckOut = (props: IPROPS) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleCheckout}>CHECKOUT</Button>
-    </div>
+    <>
+      <Button variant="default" size="lg" onClick={handleCheckout}>
+        CHECKOUT
+      </Button>
+    </>
   );
 };
 

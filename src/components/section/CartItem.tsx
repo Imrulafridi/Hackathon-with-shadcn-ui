@@ -7,7 +7,6 @@ import {
   Link,
   Stack,
 } from "@chakra-ui/react";
-import { cartProduct } from "@/lib/interface";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hook";
 import { rmFromCart } from "../../redux/cartSlice";
@@ -62,7 +61,7 @@ export const CartItem = (props: any) => {
         justify="space-between"
         display={{ base: "none", md: "flex" }}
       >
-        $ {price}.00
+       PRICE: $ {price}.00
         <CloseButton
           aria-label={`Delete ${title} from cart`}
           onClick={() => deleteFromCart()}
@@ -77,10 +76,11 @@ export const CartItem = (props: any) => {
         justify="space-between"
         display={{ base: "flex", md: "none" }}
       >
-        <Link fontSize="sm" textDecor="underline">
-          Delete
-        </Link>
-        {price}
+         <CloseButton
+          aria-label={`Delete ${props.name} from cart`}
+          onClick={() => deleteFromCart()}
+        />
+       PRICE: $ {price}.00
       </Flex>
     </Flex>
   );

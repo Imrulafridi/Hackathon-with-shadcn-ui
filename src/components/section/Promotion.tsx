@@ -8,12 +8,12 @@ const EventsBanner = () => {
   return (
     <section className="container py-16">
       <div className="flex flex-col text-center gap-4 mb-8">
-        <span className="text-blue-700">PROMOTIONS</span>
-        <h2 className="text-2xl font-bolds">Our Promotions Events</h2>
+        <span className="text-blue-700 font-bold">PROMOTIONS</span>
+        <h2 className="text-4xl font-bold">Our Promotions Events</h2>
       </div>
 
       <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
-        <div className="mx-auto w-full flex flex-1 flex-col gap-4 ">
+        <div className="mx-auto flex flex-1 flex-col gap-4 min-h-fit ">
           <div className="bg-[#D6D6D8] px-8 flex flex-col md:flex-row justify-between items-center">
             <div className="content">
               <h3 className="font-bold text-2xl ">
@@ -27,24 +27,26 @@ const EventsBanner = () => {
           <div className="bg-[#212121] text-white p-8 text-center space-y-2">
             <h3 className="font-bold text-2xl">GET 30% Off</h3>
             <p>USE PROMO CODE</p>
-            <button className="bg-slate-500 p-2 rounded-lg">DINEWEEKENDSALE</button>
+            <button className="bg-slate-500 p-2 rounded-lg">
+              DINEWEEKENDSALE
+            </button>
           </div>
         </div>
 
         <div className="flex flex-1 flex-col md:flex-row justify-between items-center gap-2">
-          <div className="bg-[#EFE1C7] p-8 ">
-            <div className="font-bold text-lg pb-8">
+          <div className="bg-[#EFE1C7]">
+            <div className="font-bold text-lg p-6">
               <p>Flex Sweatshirt</p>
               <div className="space-x-4">
                 <span>$100.00</span>
-                <span className="line-through" >$75.00</span>
+                <span className="line-through">$75.00</span>
               </div>
             </div>
             <Image src={event2} alt="event" />
           </div>
 
-          <div className="bg-[#D7D7D9] p-8">
-            <div className="font-bold text-lg pb-8">
+          <div className="bg-[#D7D7D9]">
+            <div className="font-bold text-lg p-6">
               <p>Flex Push Button </p>
               <div className="space-x-4">
                 <span>$225.00</span>

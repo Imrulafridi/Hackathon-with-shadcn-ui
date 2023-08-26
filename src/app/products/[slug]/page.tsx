@@ -46,14 +46,14 @@ type Icategory = {
 };
 
 // Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//   const res: Icategory[] = await client.fetch(`*[_type=="product"]{
-//     slug {
-//       current
-//     }
-//   }`);
+export async function generateStaticParams() {
+  const res: Icategory[] = await client.fetch(`*[_type=="product"]{
+    slug {
+      current
+    }
+  }`);
 
-//   return res.map((category) => ({
-//     slug: category.slug.current,
-//   }));
-// }
+  return res.map((category) => ({
+    slug: category.slug.current,
+  }));
+}

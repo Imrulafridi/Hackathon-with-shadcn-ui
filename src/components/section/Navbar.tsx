@@ -57,13 +57,12 @@ export default function Navbar({ userId }: { userId: string }) {
   useEffect(() => {
     dispatch(fetchData(userId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId]);
+  }, [dispatch, userId]);
 
   return (
     <div>
       <Box
         className="container"
-        bg={useColorModeValue("gray.100", "gray.900")}
         px={4}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
